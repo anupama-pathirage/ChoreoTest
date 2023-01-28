@@ -1,7 +1,10 @@
-import ballerina/io;
+import ballerina/http;
 
 string versionVal = "0.0.1";
 
-public function main() {
-    io:println("Hello, World!");
+service /test on new http:Listener(9090) {
+    resource function get versionval () returns string {
+        return versionVal;
+    }
+        
 }
